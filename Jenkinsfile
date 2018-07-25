@@ -6,7 +6,7 @@ node('master') {
 
 node('slave') {
     try {
-        sh "for i in \$( ls /srv/compose );do docker-compose -f \$i ps | awk '{if (NR!=1) {print \$1}}' | awk -F '---' '{print \$1}' | tr '\n' ' '; done"
+        sh "for i in \$( ls /srv/compose );do docker-compose -f /srv/compose/\$i ps | awk '{if (NR!=1) {print \$1}}' | awk -F '---' '{print \$1}' | tr '\n' ' '; done"
     } catch (e) {
         currentBuild.result = 'ERRO AO EXECUTAR O COMANDO ACIMA'
         throw e
