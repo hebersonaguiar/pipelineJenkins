@@ -23,10 +23,9 @@ node('slave') {
 node('master') {
     stage('Containers em Execução') {
 
-       input 'Deseja continuar com a ação?'
+        input 'Deseja continuar com a ação?'
 
-       steps {
-            print "DEBUG: TESTE PARAMETRO TAG = ${params.Tag}"
-        }
+        print "DEBUG: TESTE PARAMETRO TAG = ${params.Tag}"
+        
     }
 }
