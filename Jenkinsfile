@@ -19,3 +19,10 @@ node('slave') {
         } 
     }
 }
+
+node('master') {
+    stage('Containers em Execução') {
+        checkout scm
+        print "DEBUG: TESTE PARAMETRO TAG = ${params.Tag}"
+    }
+}
