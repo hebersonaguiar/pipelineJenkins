@@ -8,5 +8,4 @@ pipeline {
         sh 'docker ps'
       }
     }
-  }
 }
