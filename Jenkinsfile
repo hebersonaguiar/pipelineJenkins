@@ -23,20 +23,9 @@ node('slave') {
 node('master') {
     stage('Containers em Execução') {
 
-        input 'Deseja continuar com a ação?'
+       input 'Deseja continuar com a ação?'
 
-        parameters {
-            choice(
-                choices: 'Continue\nAbortar',
-                description: 'Deseja continuar com o upgrade?',
-                name: 'REQUESTED_ACTION')
-        }
-
-        when {
-            expression { params.REQUESTED_ACTION == 'Continue' }
-        }
-
-        steps {
+       steps {
             print "DEBUG: TESTE PARAMETRO TAG = ${params.Tag}"
         }
     }
