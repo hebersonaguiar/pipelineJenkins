@@ -1,7 +1,7 @@
 node {
   checkout scm
 
-  stage ('Docker Ps') {
-      sh "docker ps"    
+  stage ('Containers em Execução') {
+      sh "for i in $( ls /srv/compose );do docker-compose -f $i ps | awk '{if (NR!=1) {print $1}}' | awk -F '---' '{print $1}' | tr '\n' ' '; done"    
   }
 }
