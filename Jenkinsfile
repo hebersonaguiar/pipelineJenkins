@@ -22,6 +22,9 @@ node('slave') {
 
 node('master') {
     stage('Containers em Execução') {
+
+        input 'Deseja continuar com a ação?'
+
         parameters {
             choice(
                 choices: 'Continue\nAbortar',
